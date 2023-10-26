@@ -2,16 +2,17 @@ import sqlite3
 import testDB
 from nameObj import Riders
 
-
+# Stores user feedback into variables
 def addRAS():
     name        = input("Name: ")
     shift       = input("Shift: ")
     location    = input("Location: ")
     group_label = input("Group ID: ")
 
-    rider = Riders(name=name, shift=shift, location=location, group_label=group_label)
+    rider = Riders(name=name, shift=shift, location=location, group_label=group_label) 
     testDB.addRas(rider)
 
+# Delete riders from DB/list
 def delete_rider():
     rider_id = int(input("Rider ID: "))
     temp = testDB.getRider(rider_id)
@@ -25,7 +26,8 @@ def delete_rider():
             print(f'Rider "{temp}" was deleted from database.\n')
         else:
             print("Back to list.")
-
+            
+# Displays all rider information in the list 
 def showAllRiders():
     riders = []
     riders = testDB.showAll()
@@ -34,7 +36,7 @@ def showAllRiders():
         print(x)
     print()
 
-
+# Initial menu to guide user
 def menu():
     print("add - Enter rider info")
     print("show - Show riders")
@@ -42,7 +44,7 @@ def menu():
     print("Exit - Exit program")
     print()
 
-
+# Runs the program and appropiate functions are called by user
 def main():
     #rider = []
     testDB.connect()
