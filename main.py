@@ -26,6 +26,8 @@ def delete_rider():
             print(f'Rider "{temp}" was deleted from database.\n')
         else:
             print("Back to list.")
+
+
             
 # Displays all rider information in the list 
 def showAllRiders():
@@ -42,8 +44,17 @@ def menu():
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
-    print("testing this now")
+
+=======
+    print("s - shift search 1st/2nd/3rd")
+
     print()
+
+# Shows all number of riders on each shift
+def show_shift():
+    group = input('Please enter a shift: 1st/2nd/3rd: ')
+    holder = testDB.getGroup(group)
+    print(group)
 
 # Runs the program and appropiate functions are called by user
 def main():
@@ -61,6 +72,9 @@ def main():
             showAllRiders()
         elif prompt.lower() == 'del':
             delete_rider()
+        elif prompt.lower() == 's':
+            show_shift()
+            #function for returning shift
         elif prompt.lower() == 'exit':
             break
         else:
