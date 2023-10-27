@@ -44,6 +44,8 @@ def menu():
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
+
+=======
     print("s - shift search 1st/2nd/3rd")
 
     print()
