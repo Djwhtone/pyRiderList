@@ -48,6 +48,7 @@ def menu():
 
     print()
 
+# Shows all number of riders on each shift
 def show_shift():
     group = input('Please enter a shift: 1st/2nd/3rd: ')
     holder = testDB.getGroup(group)
