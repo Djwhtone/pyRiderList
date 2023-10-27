@@ -42,6 +42,7 @@ def menu():
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
+    print("testing this now")
     print()
 
 # Runs the program and appropiate functions are called by user
