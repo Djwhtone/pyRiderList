@@ -38,14 +38,10 @@ def showAllRiders():
 
 # Initial menu to guide user
 def menu():
-    print("Start of the program")
-    print("try this")
-
     print("add - Enter rider info")
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
-    print("testing this now")
     print()
 
 # Runs the program and appropiate functions are called by user
