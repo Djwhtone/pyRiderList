@@ -40,14 +40,19 @@ def showAllRiders():
 
 # Initial menu to guide user
 def menu():
+    print("Start of the program")
+
     print("add - Enter rider info")
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
+
+=======
     print("s - shift search 1st/2nd/3rd")
 
     print()
 
+# Shows all number of riders on each shift
 def show_shift():
     group = input('Please enter a shift: 1st/2nd/3rd: ')
     holder = testDB.getGroup(group)
