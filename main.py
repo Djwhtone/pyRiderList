@@ -2,7 +2,7 @@ import sqlite3
 import testDB
 from nameObj import Riders
 
-def showGroup():
+def show_group():
     rider_group = input("Enter group: ")
     rider_group = rider_group.upper()
     group = testDB.riderGroups(rider_group)
