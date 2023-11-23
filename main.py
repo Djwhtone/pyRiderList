@@ -9,7 +9,7 @@ def show_group():
 
     for x in group:
         print(x)
-    print()
+    print("\n new riders added")
 
 # Stores user feedback into variables
 def addRAS():
