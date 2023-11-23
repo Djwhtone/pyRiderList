@@ -10,6 +10,7 @@ def show_group():
     for x in group:
         print(x)
     print()
+
 # Stores user feedback into variables
 def addRAS():
     name        = input("Name: ")
@@ -54,7 +55,7 @@ def menu():
     print("show - Show riders")
     print("del - Delete a rider")
     print("Exit - Exit program")
-    print("s - shift search 1st/2nd/3rd") # new
+    print("g - return group") # new
 
     print()
 
@@ -80,8 +81,8 @@ def main():
             showAllRiders()
         elif prompt.lower() == 'del':
             delete_rider()
-        elif prompt.lower() == 's':
-            show_shift()
+        elif prompt.lower() == 'g':
+            show_group()
             #function for returning shift
         elif prompt.lower() == 'exit':
             break

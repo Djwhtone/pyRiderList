@@ -48,12 +48,12 @@ def getRider(rider_id):
     row = c.fetchone()
     return row
 
-# Will extract group from riderID possibly
+# Will extract group from group label 
 def getGroup(group_label):
     query = '''SELECT riderID, name, shift, location, group_label
                FROM RasRiders 
                WHERE group_label = ?'''
     c = conn.cursor()
     c.execute(query, (group_label))
-    row = c.fetchone()
+    row = c.fetchall() 
     return row
