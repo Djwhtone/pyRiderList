@@ -1,0 +1,76 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import sqlite3\r\nimport testDB\r\nfrom nameObj import Riders\r\n\r\n# Stores user feedback into variables\r\ndef addRAS():\r\n    name        = input(\"Name: \")\r\n    shift       = input(\"Shift: \")\r\n    location    = input(\"Location: \")\r\n    group_label = input(\"Group ID: \")\r\n\r\n    rider = Riders(name=name, shift=shift, location=location, group_label=group_label) \r\n    testDB.addRas(rider)\r\n\r\n# Delete riders from DB/list\r\ndef delete_rider():\r\n    rider_id = int(input(\"Rider ID: \"))\r\n    temp = testDB.getRider(rider_id)\r\n    print(temp)\r\n    if temp == None:\r\n        print(\"ID does not exist\")\r\n    else:\r\n        command = input(f'Do you want to delete \"{temp} \", y,n: ')\r\n        if command == \"y\":\r\n            testDB.deleteRider(rider_id)\r\n            print(f'Rider \"{temp}\" was deleted from database.\\n')\r\n        else:\r\n            print(\"Back to list.\")\r\n            \r\n# Displays all rider information in the list \r\ndef showAllRiders():\r\n    riders = []\r\n    riders = testDB.showAll()\r\n\r\n    for x in riders:\r\n        print(x)\r\n    print()\r\n\r\n# Initial menu to guide user\r\ndef menu():\r\n    print(\"Start of the program\")\r\n    print(\"try this\")\r\n\r\n    print(\"add - Enter rider info\")\r\n    print(\"show - Show riders\")\r\n    print(\"del - Delete a rider\")\r\n    print(\"Exit - Exit program\")\r\n    print(\"testing this now\")\r\n    print()\r\n\r\n# Runs the program and appropiate functions are called by user\r\ndef main():\r\n    #rider = []\r\n    testDB.connect()\r\n    menu()\r\n\r\n    while True:\r\n        prompt = input(\"Selection: \")\r\n        if prompt.lower() == 'add':\r\n            addRAS()\r\n        elif prompt.lower() == 'menu':\r\n            menu()\r\n        elif prompt.lower() == 'show':\r\n            showAllRiders()\r\n        elif prompt.lower() == 'del':\r\n            delete_rider()\r\n        elif prompt.lower() == 'exit':\r\n            break\r\n        else:\r\n            print(f'Invalid Option! \"menu\" to display options')\r\n\r\n\r\n# Press the green button in the gutter to run the script.\r\nif __name__ == '__main__':\r\n    main()\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision 6ca4bf1cc683295fae581164f67e3c73b205a641)
++++ b/main.py	(date 1700699078000)
+@@ -2,6 +2,7 @@
+ import testDB
+ from nameObj import Riders
+ 
++
+ # Stores user feedback into variables
+ def addRAS():
+     name        = input("Name: ")
+@@ -9,7 +10,7 @@
+     location    = input("Location: ")
+     group_label = input("Group ID: ")
+ 
+-    rider = Riders(name=name, shift=shift, location=location, group_label=group_label) 
++    rider = Riders(name=name, shift=shift, location=location, group_label=group_label)
+     testDB.addRas(rider)
+ 
+ # Delete riders from DB/list
+@@ -26,8 +27,10 @@
+             print(f'Rider "{temp}" was deleted from database.\n')
+         else:
+             print("Back to list.")
+-            
+-# Displays all rider information in the list 
++
++
++
++# Displays all rider information in the list
+ def showAllRiders():
+     riders = []
+     riders = testDB.showAll()
+@@ -38,16 +41,22 @@
+ 
+ # Initial menu to guide user
+ def menu():
+-    print("Start of the program")
+-    print("try this")
++    print("Start of the program") # new
+ 
+     print("add - Enter rider info")
+     print("show - Show riders")
+     print("del - Delete a rider")
+     print("Exit - Exit program")
+-    print("testing this now")
++    print("s - shift search 1st/2nd/3rd") # new
++
+     print()
+ 
++# Shows all number of riders on each shift - new
++def show_shift():
++    group = input('Please enter a shift: 1st/2nd/3rd: ')
++    holder = testDB.getGroup(group)
++    print(group)
++
+ # Runs the program and appropiate functions are called by user
+ def main():
+     #rider = []
+@@ -64,6 +73,9 @@
+             showAllRiders()
+         elif prompt.lower() == 'del':
+             delete_rider()
++        elif prompt.lower() == 's':
++            show_shift()
++            #function for returning shift
+         elif prompt.lower() == 'exit':
+             break
+         else:
