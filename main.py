@@ -2,6 +2,14 @@ import sqlite3
 import testDB
 from nameObj import Riders
 
+def show_group():
+    rider_group = input("Enter group: ")
+    rider_group = rider_group.upper()
+    group = testDB.getGroup(rider_group)
+
+    for x in group:
+        print(x)
+    print()
 # Stores user feedback into variables
 def addRAS():
     name        = input("Name: ")
