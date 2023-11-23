@@ -5,7 +5,7 @@ from nameObj import Riders
 def show_group():
     rider_group = input("Enter group: ")
     rider_group = rider_group.upper()
-    group = testDB.riderGroups(rider_group)
+    group = testDB.getGroup(rider_group)
 
     for x in group:
         print(x)
