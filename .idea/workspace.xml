@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c587740-fc6a-44ed-802c-5e68185e3c39" name="Changes" comment="pycharm repo" />
+    <list default="true" id="9c587740-fc6a-44ed-802c-5e68185e3c39" name="Changes" comment="print text addition" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700698527152</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="print text addition">
+      <created>1700700617323</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700700617323</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,6 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pycharm repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="pycharm repo" />
+    <MESSAGE value="print text addition" />
+    <option name="LAST_COMMIT_MESSAGE" value="print text addition" />
   </component>
 </project>
