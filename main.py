@@ -16,7 +16,7 @@ def addRAS():
     name        = input("Name: ")
     shift       = input("Shift: ")
     location    = input("Location: ")
-    group_label = input("Group ID: ")
+    group_label = input("Group ID: ").upper()
 
     rider = Riders(name=name, shift=shift, location=location, group_label=group_label) 
     testDB.addRas(rider)
