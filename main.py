@@ -1,4 +1,3 @@
-import sqlite3
 import testDB
 from nameObj import Riders
 
