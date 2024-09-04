@@ -10,15 +10,23 @@ def createTables():
     cursor.execute('CREATE TABLE BowlingGreen(name TEXT, shift TEXT, location TEXT, group_label TEXT)')
     conn.commit()
 
-def addRas(rider):
+def addRas(rider: Riders):
     sql = '''INSERT INTO RasRiders (name, shift, location, group_label)
-             VALUES (?,?,?,?)'''
+             VALUES (:name, :shift, :location, :group_label)'''
     cursor = conn.cursor()
-    cursor.execute(sql, (rider.name,rider.shift,rider.location,rider.group_label))
+
+    params = {
+        "name": rider.name,
+        "shift": rider.shift,
+        "location": rider.location,
+        "group_label": rider.group_label
+    }
+
+    cursor.execute(sql, params)
     conn.commit()
 
 
-def deleteRider(rider_id):
+def deleteRider(rider_id: Riders):
     sql = '''DELETE FROM RasRiders WHERE riderID = ?'''
 
     c = conn.cursor()
@@ -39,21 +47,31 @@ def showAll():
     return riders
 
 # Allows the selection of riders from the list
-def getRider(rider_id):
+def getRider(rider_id: int):
     query = '''SELECT riderID, name, shift, location, group_label
                FROM RasRiders
-               WHERE riderID = ?'''
+               WHERE riderID = :riderID'''
     c = conn.cursor()
-    c.execute(query, (rider_id,))
+
+    params = {
+        "riderID": rider_id
+    }
+
+    c.execute(query, params)
     row = c.fetchone()
     return row
 
 # Will extract group from group label 
-def getGroup(group_label):
+def getGroup(group_label: str):
     query = '''SELECT riderID, name, shift, location, group_label
                FROM RasRiders 
-               WHERE group_label = ?'''
+               WHERE group_label = :group_label'''
     c = conn.cursor()
-    c.execute(query, (group_label))
+
+    params = {
+        "group_label": group_label 
+    }
+
+    c.execute(query, params)
     row = c.fetchall() 
     return row
