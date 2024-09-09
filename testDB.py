@@ -76,6 +76,6 @@ def getGroup(group_label: str) -> List[Riders]:
     c.execute(query, params)
     rows = c.fetchall() 
 
-    riders = [Rider(*row) for row in rows]
+    riders = [Riders(*row) for row in rows]
 
     return riders
