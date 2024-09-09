@@ -6,4 +6,7 @@ class Riders:
         self.shift = shift
         self.location = location
         self.group_label = group_label
+
+    def __str__(self):
+        return f'{self.name}'
 #push test
