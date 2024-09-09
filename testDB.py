@@ -1,4 +1,5 @@
 import sqlite3
+from typing import List
 from nameObj import Riders
 
 def connect():
@@ -62,7 +63,7 @@ def getRider(rider_id: int):
     return row
 
 # Will extract group from group label 
-def getGroup(group_label: str):
+def getGroup(group_label: str) -> List[Riders]:
     query = '''SELECT riderID, name, shift, location, group_label
                FROM RasRiders 
                WHERE group_label = :group_label'''
@@ -73,5 +74,8 @@ def getGroup(group_label: str):
     }
 
     c.execute(query, params)
-    row = c.fetchall() 
-    return row
+    rows = c.fetchall() 
+
+    riders = [Rider(*row) for row in rows]
+
+    return riders
