@@ -28,10 +28,15 @@ def addRas(rider: Riders):
 
 
 def deleteRider(rider_id: Riders):
-    sql = '''DELETE FROM RasRiders WHERE riderID = ?'''
+    sql = '''DELETE FROM RasRiders WHERE riderID = :riderID'''
 
     c = conn.cursor()
-    c.execute(sql, (rider_id,))
+
+    params = {
+        'riderID': rider_id
+    }
+
+    c.execute(sql, params)
     conn.commit()
 
 
@@ -42,9 +47,8 @@ def showAll():
 
     results = cursor.fetchall()
 
-    riders = []
-    for x in results:
-        riders.append(x)
+    riders = [Riders(*row) for row in results]  #returning Rider Objects
+
     return riders
 
 # Allows the selection of riders from the list
@@ -60,7 +64,11 @@ def getRider(rider_id: int):
 
     c.execute(query, params)
     row = c.fetchone()
-    return row
+
+    if row:
+        return Riders(*row)
+    else:
+        return None
 
 # Will extract group from group label 
 def getGroup(group_label: str) -> List[Riders]:
