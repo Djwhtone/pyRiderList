@@ -1,4 +1,5 @@
 import testDB
+import model_functions, mf
 from nameObj import Riders
 
 def show_group():
@@ -17,8 +18,9 @@ def addRAS():
     location    = input("Location: ")
     group_label = input("Group ID: ").upper()
 
-    rider = Riders(name=name, shift=shift, location=location, group_label=group_label) 
-    testDB.addRas(rider)
+    mf.addRider(name,shift,location,group_label)
+    #rider = Riders(name=name, shift=shift, location=location, group_label=group_label) 
+    #testDB.addRas(rider)
 
 # Delete riders from DB/list
 def delete_rider():
